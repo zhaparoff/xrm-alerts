@@ -1,7 +1,3 @@
-TL;DR:
-
-Alert.js v2.1 is free to use for all Dynamics 365 customers and partners. Free means you can include this solution as a part of a larger solution, and make any changes to the source code as needed, provided you maintain the copyright notice and repository links at the top of each file. Free does not mean you can onsell this as a standalone solution, and/or claim this solution as your own. If you're unsure about any of this, please create an issue, or contact us: https://www.magnetismsolutions.com/contact-us.
-
 Common Development and Distribution License (CDDL)
 1. Definitions.
 
