@@ -1,0 +1,6 @@
+.vs/
+.vscode/
+.rpt2_cache/
+.awcache/
+node_modules/
+dist/
