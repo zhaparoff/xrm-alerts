@@ -15,32 +15,16 @@ steps:
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
-  displayName: 'npm install'
-
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run check'
-  displayName: 'npm check'
-
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run lint'
-  displayName: 'npm lint'
-
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run build:prod'
-  displayName: 'npm build'
+- script: |
+    npm install
+    npm run check
+    npm run lint
+    npm run build:dev
+  displayName: 'npm install, check and build'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)\dist'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
