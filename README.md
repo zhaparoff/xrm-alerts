@@ -15,8 +15,7 @@ Changes from original version:
  - NPM package published
 
 
-### WARNING
-This version is **NOT** fully compatible with the original Alert.js, since it contains a bunch of breaking changes in the method signatures.
+**WARNING**: This version is **NOT** fully compatible with the original Alert.js, since it contains a bunch of breaking changes in the method signatures.
 
 
 Anton Zhaparov, 2019
