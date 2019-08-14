@@ -1,7 +1,7 @@
 {
     "name": "xrm-alerts",
     "description": "Custom alerts and popup windows for Dynamics 365/CRM",
-    "version": "0.1.0-alpha.3",
+    "version": "0.1.0-alpha.4",
     "keywords": [
         "CRM",
         "XRM",
@@ -15,7 +15,6 @@
     "license": "CDDL-1.0",
     "author": "Anton Zhaparov",
     "main": "dist/index.js",
-    "types": "dist/index.d.ts",
     "repository": "github:zhaparoff/xrm-alerts.git",
     "scripts": {
         "check": "tsc",
