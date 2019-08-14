@@ -24,15 +24,13 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
-    Contents: '**'
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: |
+      dist
+      package.json
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: 'package.json'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy output'
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts'
