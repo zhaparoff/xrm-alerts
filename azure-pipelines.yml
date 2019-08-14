@@ -22,6 +22,8 @@ steps:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: |
       dist/*
+      readme.md
+      license
       package.json
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
