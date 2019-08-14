@@ -1,11 +1,11 @@
-#XRM Alerts
+# XRM Alerts
 
 Was forked from original Alert.js (v2.1) by Paul Nieuwelaar to bundle it into single js file, with embedded styles and images.
 
 Having one file simplifies deployment a lot. Also this allows to include the bundle as a dependency into lager bundles and easily publish it as NPM package.
 
 
-##WARNING
+## WARNING
 This version is **NOT** fully compatible with the original Alert.js, since it contains a bunch of breaking changes in the method signatures.
 
 
