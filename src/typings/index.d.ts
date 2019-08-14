@@ -18,9 +18,11 @@ declare namespace Alert {
         getIFrameWindow(): Window | undefined;
     }
 
-    type ButtonList = Button[];    
-    
-    type IconType = "INFO" | "WARNING" | "ERROR" | "SUCCESS" | "QUESTION" | "LOADING" | "NONE";  
+    type ButtonList = Button[];
+
+    type IconType = "INFO" | "WARNING" | "ERROR" | "SUCCESS" | "QUESTION" | "LOADING" | "NONE";
 }
 
 declare const Alert: Alert.AlertStatic;
+
+export default Alert;
