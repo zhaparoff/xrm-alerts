@@ -1,7 +1,7 @@
 {
     "name": "xrm-alerts",
     "description": "Custom alerts and popup windows for Dynamics 365/CRM",
-    "version": "0.1.0-alpha.5",
+    "version": "0.1.0-alpha.6",
     "keywords": [
         "CRM",
         "XRM",
@@ -20,8 +20,8 @@
     "scripts": {
         "check": "tsc",
         "lint": "tslint 'src/ts/**'",
-        "build:dev": "webpack --mode=development",
-        "build:prod": "webpack --mode=production"
+        "build": "webpack --mode=production",
+        "build:dev": "webpack --mode=development"
     },
     "peerDependencies": {
         "jquery": "*"

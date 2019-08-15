@@ -14,7 +14,7 @@ steps:
     npm install
     npm run check
     npm run lint
-    npm run build:dev
+    npm run build
   displayName: 'npm install, check and build'
 
 - task: CopyFiles@2
