@@ -1,0 +1,9 @@
+﻿.vs/
+.vscode/
+.rpt2_cache/
+.awcache/
+.cache/
+node_modules/
+dist/
+\typings\xrm
+\lib\xdt

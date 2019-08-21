@@ -12,8 +12,6 @@ steps:
 
 - script: |
     npm install
-    npm run check
-    npm run lint
     npm run build
   displayName: 'npm install, check and build'
 
@@ -23,6 +21,7 @@ steps:
     Contents: |
       dist/*
       README.md
+      CHANGELOG.md
       LICENSE
       package.json
     TargetFolder: '$(Build.ArtifactStagingDirectory)'

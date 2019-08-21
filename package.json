@@ -1,7 +1,7 @@
 {
     "name": "xrm-alerts",
     "description": "Custom alerts and popup windows for Dynamics 365/CRM",
-    "version": "0.1.0-alpha.6",
+    "version": "0.1.0-alpha.7",
     "keywords": [
         "CRM",
         "XRM",
@@ -15,29 +15,43 @@
     "license": "CDDL-1.0",
     "author": "Anton Zhaparov",
     "main": "dist/index.js",
+    "module": "dist/index.esm.js",
     "types": "dist/index.d.ts",
     "repository": "github:zhaparoff/xrm-alerts.git",
     "scripts": {
         "check": "tsc",
         "lint": "tslint 'src/ts/**'",
-        "build": "webpack --mode=production",
-        "build:dev": "webpack --mode=development"
+        "build:wp:prod": "webpack --mode=production",
+        "build:wp:dev": "webpack --mode=development",
+        "build:ru": "rollup -c",
+        "build": "npm run check && npm run lint && npm run build:wp:prod"
     },
     "peerDependencies": {
         "jquery": "*"
     },
     "devDependencies": {
+        "@babel/core": "^7.5.5",
         "@types/jquery": "^3.3.31",
-        "@types/node": "^12.7.1",
         "@types/xrm": "^9.0.14",
+        "@wessberg/rollup-plugin-ts": "^1.1.63",
         "awesome-typescript-loader": "^5.2.1",
         "clean-webpack-plugin": "^3.0.0",
         "copy-webpack-plugin": "^5.0.4",
+        "core-js": "^3.2.1",
         "css-loader": "^3.2.0",
-        "tslint": "^5.18.0",
+        "jquery": "^3.4.1",
+        "rollup": "^1.19.4",
+        "rollup-cli": "^1.0.9",
+        "rollup-plugin-auto-external": "^2.0.0",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-cpy": "^2.0.1",
+        "rollup-plugin-delete": "^1.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-url": "^2.2.2",
+        "tslint": "^5.19.0",
         "typescript": "^3.5.3",
         "url-loader": "^2.1.0",
         "webpack": "^4.39.2",
-        "webpack-cli": "^3.3.6"
+        "webpack-cli": "^3.3.7"
     }
 }
