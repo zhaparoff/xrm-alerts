@@ -2,7 +2,7 @@
 
 [![Build Status](https://dev.azure.com/zhaparoff/xrm-alerts/_apis/build/status/xrm-alerts?branchName=master)](https://dev.azure.com/zhaparoff/xrm-alerts/_build/latest?definitionId=7&branchName=master)
 
-Was forked from original Alert.js (v2.1) by Paul Nieuwelaar to bundle it into single js file, with embedded styles and images.
+Was forked from original [Alert.js](https://github.com/PaulNieuwelaar/alertjs) (v2.1) by Paul Nieuwelaar to bundle it into single js file, with embedded styles and images.
 
 Having one file simplifies deployment a lot. Also this allows to include the bundle as a dependency into lager bundles and easily publish it as NPM package.
 
