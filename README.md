@@ -1,6 +1,7 @@
 # XRM Alerts
 
 ![npm](https://img.shields.io/npm/v/xrm-alerts?style=flat-square)
+![Azure DevOps builds](https://img.shields.io/azure-devops/build/zhaparoff/238b0e22-3e3a-41ba-9b0b-9a36806d45d1/8?style=flat-square)
 [![Build Status](https://dev.azure.com/zhaparoff/xrm-alerts/_apis/build/status/xrm-alerts?branchName=master)](https://dev.azure.com/zhaparoff/xrm-alerts/_build/latest?definitionId=7&branchName=master)
 
 
