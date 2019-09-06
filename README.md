@@ -1,6 +1,6 @@
 # XRM Alerts
 
-[![NPM Version][npm-image]][npm-url]
+![npm](https://img.shields.io/npm/v/xrm-alerts?style=flat-square)
 [![Build Status](https://dev.azure.com/zhaparoff/xrm-alerts/_apis/build/status/xrm-alerts?branchName=master)](https://dev.azure.com/zhaparoff/xrm-alerts/_build/latest?definitionId=7&branchName=master)
 
 
