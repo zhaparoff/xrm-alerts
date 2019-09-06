@@ -1,7 +1,7 @@
 {
     "name": "xrm-alerts",
     "description": "Custom alerts and popup windows for Dynamics 365/CRM",
-    "version": "0.1.0-alpha.7",
+    "version": "0.1.0-alpha.8",
     "keywords": [
         "CRM",
         "XRM",
