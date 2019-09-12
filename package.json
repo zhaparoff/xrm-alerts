@@ -1,7 +1,7 @@
 {
     "name": "xrm-alerts",
     "description": "Custom alerts and popup windows for Dynamics 365/CRM",
-    "version": "0.1.0-alpha.8",
+    "version": "0.1.0-alpha.9",
     "keywords": [
         "CRM",
         "XRM",
@@ -40,7 +40,7 @@
         "core-js": "^3.2.1",
         "css-loader": "^3.2.0",
         "jquery": "^3.4.1",
-        "rollup": "^1.20.3",
+        "rollup": "^1.21.2",
         "rollup-cli": "^1.0.9",
         "rollup-plugin-auto-external": "^2.0.0",
         "rollup-plugin-babel": "^4.3.3",
@@ -48,8 +48,8 @@
         "rollup-plugin-delete": "^1.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-url": "^2.2.2",
-        "tslint": "^5.19.0",
-        "typescript": "^3.6.2",
+        "tslint": "^5.20.0",
+        "typescript": "^3.6.3",
         "url-loader": "^2.1.0",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.8"
