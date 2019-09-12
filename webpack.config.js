@@ -1,5 +1,4 @@
 const path = require("path");
-const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 
@@ -10,7 +9,7 @@ module.exports = {
     entry: path.join(srcRoot, "ts/alert.ts"),
     output: {
         path: dstRoot,
-        filename: "index.js",
+        filename: "alert.js",
         library: "Alert",
         libraryTarget: "umd"
     },
@@ -44,12 +43,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        new CopyPlugin([
-            {
-                from: path.join(srcRoot, "typings"),
-                to: path.join(dstRoot)
-            }
-        ])
+        new CleanWebpackPlugin()
     ]
 };

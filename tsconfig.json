@@ -16,9 +16,10 @@
     // ],        
     // "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */    
-    // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
-    // "declarationDir": "dist",
+    "declaration": true,                      /* Generates corresponding '.d.ts' file. */
+    "declarationDir": "dist",
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
+    // "emitDeclarationOnly": true,
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
     // "outDir": "dist",                      /* Redirect output structure to the directory. */

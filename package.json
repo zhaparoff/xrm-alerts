@@ -1,7 +1,7 @@
 {
     "name": "xrm-alerts",
     "description": "Custom alerts and popup windows for Dynamics 365/CRM",
-    "version": "0.1.0-alpha.9",
+    "version": "0.1.0-alpha.10",
     "keywords": [
         "CRM",
         "XRM",
@@ -14,9 +14,9 @@
     "bugs": "https://github.com/zhaparoff/xrm-alerts/issues",
     "license": "CDDL-1.0",
     "author": "Anton Zhaparov",
-    "main": "dist/index.js",
-    "module": "dist/index.esm.js",
-    "types": "dist/index.d.ts",
+    "main": "dist/alert.js",
+    "module": "dist/alert.esm.js",
+    "types": "dist/alert.d.ts",
     "repository": "github:zhaparoff/xrm-alerts.git",
     "scripts": {
         "check": "tsc",
@@ -36,7 +36,6 @@
         "@wessberg/rollup-plugin-ts": "^1.1.64",
         "awesome-typescript-loader": "^5.2.1",
         "clean-webpack-plugin": "^3.0.0",
-        "copy-webpack-plugin": "^5.0.4",
         "core-js": "^3.2.1",
         "css-loader": "^3.2.0",
         "jquery": "^3.4.1",
@@ -44,7 +43,6 @@
         "rollup-cli": "^1.0.9",
         "rollup-plugin-auto-external": "^2.0.0",
         "rollup-plugin-babel": "^4.3.3",
-        "rollup-plugin-cpy": "^2.0.1",
         "rollup-plugin-delete": "^1.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-url": "^2.2.2",

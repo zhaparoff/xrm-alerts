@@ -2,7 +2,6 @@ import path from "path";
 import ts from "@wessberg/rollup-plugin-ts";
 import url from "rollup-plugin-url";
 import del from "rollup-plugin-delete";
-import cpy from "rollup-plugin-cpy";
 import resolve from "rollup-plugin-node-resolve";
 import pkg from "./package.json";
 
@@ -29,10 +28,6 @@ export default [
         plugins: [
             del({
                 targets: "dist/*"
-            }),
-            cpy({
-                files: "src/typings/index.d.ts",
-                dest: "dist"
             }),
             ts({
                 exclude: [
