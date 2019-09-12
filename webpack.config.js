@@ -13,9 +13,6 @@ module.exports = {
         library: "Alert",
         libraryTarget: "umd"
     },
-    externals: [
-        /^(jquery|\$)$/i
-    ],
     resolve: {
         extensions: [
             ".ts",

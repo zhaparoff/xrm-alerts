@@ -14,9 +14,6 @@
 
 
 
-import jquery from "jquery";
-
-
 interface Button {
     label: string;
     callback: () => void;
@@ -38,12 +35,11 @@ class AlertStatic {
         NONE: null
     };
 
-    // Stores the jQuery reference for the CRM main page (if turbo etc)
-    private readonly jQuery = jquery;
 
     private isInitialised = false;
-    private context?: Document;
-    private crmContext?: Window;
+    private crmContext!: Window;
+    private context!: Document;
+    private jQuery!: JQueryStatic;
 
     // purpose: display an alert style dialog for the user using a styled CRM lightbox
     // Allows for custom buttons and callbacks
@@ -66,11 +62,14 @@ class AlertStatic {
         preventCancel?: boolean
     ): void {
         if (!this.isInitialised) {
+            // The CRM window, for calling back from an Alert iframe. Use parent.Alert._crmContext to get back to the CRM window from inside an iframe
+            this.crmContext = window;
+
+            this.jQuery = jQuery;
+
             // The parent/top document which we append the wrapper to
             this.context = window.top.document;
 
-            // The CRM window, for calling back from an Alert iframe. Use parent.Alert._crmContext to get back to the CRM window from inside an iframe
-            this.crmContext = window;
             (window.top as any).Alert = Alert;
 
             // The wrapper sits outside the form, so it may exist even if Alert.js is not initialised
