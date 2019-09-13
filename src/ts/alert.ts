@@ -65,7 +65,7 @@ class AlertStatic {
             // The CRM window, for calling back from an Alert iframe. Use parent.Alert._crmContext to get back to the CRM window from inside an iframe
             this.crmContext = window;
 
-            this.jQuery = jQuery;
+            this.jQuery = (window as any).jQuery || (window.parent as any).jQuery || (window.top as any).jQuery;
 
             // The parent/top document which we append the wrapper to
             this.context = window.top.document;
@@ -77,7 +77,7 @@ class AlertStatic {
             if ($alertJsWrapper == null || $alertJsWrapper.length === 0) {
                 const css = require("../css/alert.css").toString();
                 const alertJsHtml =
-                    css +
+                    "<style>" + css + "</style>" +
                     "<div id='alertJs-wrapper' class='alert-js-wrapper'>" +
                     "<div class='alert-js-background'></div>" +
                     "<div id='alertJs-dialog' class='alert-js-dialog'>" +
@@ -358,4 +358,6 @@ class AlertStatic {
     }
 }
 
-export const Alert = new AlertStatic();
+const Alert = new AlertStatic();
+
+export default Alert;

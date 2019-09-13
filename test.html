@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Alert.JS test</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="dist/alert.js"></script>
+    <script>
+        function test() {
+            Alert.showLoading();
+            setTimeout(function () { Alert.hide(); }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="test();">Test</button>
+</body>
