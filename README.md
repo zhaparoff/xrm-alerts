@@ -1,8 +1,8 @@
 # XRM Alerts
 
 [![Build Status](https://dev.azure.com/zhaparoff/xrm-alerts/_apis/build/status/xrm-alerts?branchName=master)](https://dev.azure.com/zhaparoff/xrm-alerts/_build/latest?definitionId=8&branchName=master)
-![Azure DevOps releases](https://img.shields.io/azure-devops/release/zhaparoff/238b0e22-3e3a-41ba-9b0b-9a36806d45d1/1/1?style=flat-square)
-![npm](https://img.shields.io/npm/v/xrm-alerts?style=flat-square)
+![Azure DevOps releases](https://img.shields.io/azure-devops/release/zhaparoff/238b0e22-3e3a-41ba-9b0b-9a36806d45d1/1/1)
+[![npm](https://img.shields.io/npm/v/xrm-alerts)](https://www.npmjs.com/package/xrm-alerts)
 
 
 Was forked from original [Alert.js](https://github.com/PaulNieuwelaar/alertjs) (v2.1) by Paul Nieuwelaar to bundle it into single js file, with embedded styles and images.
