@@ -1,17 +1,20 @@
-// Based on
-// https://github.com/PaulNieuwelaar/alertjs
-// Alert.js v2.1 - Copyright Paul Nieuwelaar Magnetism 2016
+/**
+ * @license
+ * Based on https://github.com/PaulNieuwelaar/alertjs
+ * Alert.js v2.1 - Copyright Paul Nieuwelaar Magnetism 2016
+ *  
+ * Changes from original version:
+ * - Migrated to TypeScript
+ * - Type definitions added to use it in other bundles
+ * - Styles and images bundled into output JS using Webpack
+ * - Some method parameters removed, due to bundling, some were reordered
+ * - Prepared for NPM package publishing
+ *
+ * Copyright 2019 - Anton Zhaparov
+ */
 
 
-// Changes from original version:
-// - Migrated to TypeScript
-// - Type definitions added to use it in other bundles
-// - Styles and images bundled into output JS using Webpack
-// - Some method parameters removed, due to bundling, some were reordered
-// - Prepared for NPM package publishing
-
-// Copyright (C) 2019 Anton Zhaparov
-
+import css from "../css/alert.css";
 
 
 interface Button {
@@ -52,30 +55,29 @@ class AlertStatic {
     // padding = (optional, defaults to 20) Sets the amount of padding around the light-box. Set to 0 for no padding (on iframes etc)
     // preventCancel = (optional, defaults to false) Hides the 'X' in the top right corner, meaning you can only dismiss the alert using the buttons
     public show(
-        title: string = "",
-        message: string = "",
+        title = "",
+        message = "",
         icon: IconType = "NONE",
         buttons: ButtonList = [{ label: "OK" } as Button],
-        width: number = 500,
-        height: number = 250,
-        padding: number = 20,
+        width = 500,
+        height = 250,
+        padding = 20,
         preventCancel?: boolean
     ): void {
         if (!this.isInitialised) {
             // The CRM window, for calling back from an Alert iframe. Use parent.Alert._crmContext to get back to the CRM window from inside an iframe
             this.crmContext = window;
 
-            this.jQuery = (window as any).jQuery || (window.parent as any).jQuery || (window.top as any).jQuery;
+            this.jQuery = window.jQuery || window.parent.jQuery || window.top.jQuery;
 
             // The parent/top document which we append the wrapper to
             this.context = window.top.document;
 
-            (window.top as any).Alert = Alert;
+            window.top.Alert = this;
 
             // The wrapper sits outside the form, so it may exist even if Alert.js is not initialised
             const $alertJsWrapper = this.$("#alertJs-wrapper");
             if ($alertJsWrapper == null || $alertJsWrapper.length === 0) {
-                const css = require("../css/alert.css").toString();
                 const alertJsHtml =
                     "<style>" + css + "</style>" +
                     "<div id='alertJs-wrapper' class='alert-js-wrapper'>" +
@@ -212,9 +214,9 @@ class AlertStatic {
 
     public showIFrame(
         iframeUrl: string,
-        width: number = 800,
-        height: number = 600,
-        padding: number = 0,
+        width = 800,
+        height = 600,
+        padding = 0,
         title?: string,
         buttons: ButtonList = [],
         preventCancel?: boolean
@@ -259,16 +261,18 @@ class AlertStatic {
         const $frame = this.$<HTMLIFrameElement>("#alertJs-iFrame");
         $frame.on("load", () => {
             try {
-                // Override the CRM closeWindow function (unsupported)
-                const frameDoc = $frame[0].contentWindow as any;
-                frameDoc.closeWindow = () => {
-                    // Fire the callback and close
-                    if (callback) {
-                        callback();
-                    }
+                // Override the CRM close Window function (unsupported)
+                const frameDoc = $frame[0].contentWindow;
+                if (frameDoc != null) {
+                    frameDoc.closeWindow = (): void => {
+                        // Fire the callback and close
+                        if (callback) {
+                            callback();
+                        }
 
-                    this.hide();
-                };
+                        this.hide();
+                    };
+                }
             }
             catch (e) { }
         });
@@ -297,7 +301,7 @@ class AlertStatic {
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
-            .replace(/  /g, "&nbsp;&nbsp;")
+            .replace(/\s{2}/g, "&nbsp;&nbsp;")
             .replace(/\n/g, "<br />");
     }
 

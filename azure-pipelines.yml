@@ -22,7 +22,7 @@ steps:
       dist/*
       README.md
       CHANGELOG.md
-      LICENSE
+      LICENSE.md
       package.json
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
