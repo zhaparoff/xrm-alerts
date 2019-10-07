@@ -2,18 +2,73 @@
 
 <head>
     <title>Alert.JS test</title>
+    
+    <style>
+        .pos {
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+
+        .testButton {
+            display: table;
+            margin: 10px;
+        }
+    </style>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="dist/alert.js"></script>
     <script>
-        function test() {
+        function infoCallback() {
+            console.log("Alert.js show dialog worked.");
+        }
+
+        function testLoading() {
             Alert.showLoading();
             setTimeout(function () { Alert.hide(); }, 1000);
+        }
+
+        function testInfo() {
+            var buttons = [
+                {
+                    label: "OK",
+                    callback: function () {
+                        Alert.hide();
+                        infoCallback();
+                    },
+                    setFocus: true,
+                    preventClose: true
+                }
+            ];
+            Alert.show("Notification", "Test dialog", buttons, "INFO", true, 400, 220);
+        }
+
+        function testWarn() {
+            var buttons = [
+                {
+                    label: "Console output",
+                    callback: function () {
+                        infoCallback();
+                    },
+                    setFocus: true,
+                    preventClose: true
+                }, 
+                {
+                    label: "Close",
+                    callback: function () {
+                        infoCallback();
+                    }
+                }
+            ];
+            Alert.show("Warning", "Test dialog is under construction. Please keep calm and be patient.", buttons, "WARNING", false, 400, 220);
         }
     </script>
 </head>
 
 <body>
-    <button onclick="test();">Test</button>
+    <div class="pos">
+        <button class="testButton" onclick="testLoading();">Test loading</button>
+        <button class="testButton" onclick="testInfo();">Test info</button>
+        <button class="testButton" onclick="testWarn();">Test warning</button>
+    </div>
 </body>

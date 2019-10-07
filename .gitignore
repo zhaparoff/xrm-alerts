@@ -4,3 +4,4 @@
 .awcache/
 node_modules/
 dist/
+/Web.config
