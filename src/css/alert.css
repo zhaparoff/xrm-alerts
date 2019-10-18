@@ -1,5 +1,4 @@
-/* Alert.js v2.2 *Beta* - Copyright Paul Nieuwelaar Magnetism 2017
-   Download the latest version from https://alertjs.codeplex.com */
+/* Alert.js v2.2 *Beta* - Copyright Paul Nieuwelaar Magnetism 2017 */
 
 .alert-js-background {
     top: 0px;
@@ -169,7 +168,6 @@
     height: 16px;
     width: 16px;
     background: transparent url(../img/alert.png) no-repeat scroll;
-    /*background-position: -312px 0px;*/
     background-position: -260px 0px;
     float: right;
     margin: 10px;
