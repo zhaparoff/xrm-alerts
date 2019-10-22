@@ -285,7 +285,7 @@ class AlertStatic {
     }
 
     public showLoading(): void {
-        this.show("Loading...", "", [], "LOADING", true, 230, 115, undefined);
+        this.show("Loading...", "", [], "LOADING", true, 230, 115);
     }
 
     // Hide the alert manually without performing any callbacks
@@ -326,8 +326,8 @@ class AlertStatic {
         isEnabled: boolean,
         childCall: boolean
     ): void {
-        if (!internalId) {
-            alert("internalId parameter is not specified.");
+        if (internalId == null) {
+            throw new Error("internalId parameter is not specified.");            
         }
 
         const button = childCall ? parent.jQuery("#alertJs-Button_" + internalId) : this.$("#alertJs-Button_" + internalId);
@@ -337,14 +337,6 @@ class AlertStatic {
     // Use the returned iframe context with jQuery to get data from the iframe, i.e. this.$("#something", Alert.getIFrameContext().document);
     public getIFrameWindow(subgridCall: boolean): Window | undefined {
         let iframeContext: Window | null = null;
-
-        if (subgridCall) {
-            try {
-                return window.top.jQuery("#alertJs-iFrame")[0].contentWindow;
-            }
-            catch (e) { }
-        }
-
 
         if (this.isInitialised) {
             const $iframe = subgridCall ? window.top.jQuery("#alertJs-iFrame") : this.$<HTMLIFrameElement>("#alertJs-iFrame");

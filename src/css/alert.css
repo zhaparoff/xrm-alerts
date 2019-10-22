@@ -130,11 +130,6 @@
     background: transparent url(../img/alert.png) no-repeat scroll;
 }
 
-.alert-js-image-find {
-    background: transparent url(../img/alert_load.gif) no-repeat scroll;
-    background-position: 0px 0px;
-}
-
 .alert-js-image-ques {
     background-position: -208px 0px;
 }
