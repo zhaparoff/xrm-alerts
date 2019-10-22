@@ -16,12 +16,12 @@
 
 import css from "../css/alert.css";
 
-
 interface Button {
     label: string;
     callback: () => void;
     setFocus: boolean;
     preventClose: boolean;
+    internalId: string;
 }
 
 type ButtonList = Button[];
@@ -57,12 +57,12 @@ class AlertStatic {
     public show(
         title = "",
         message = "",
-        icon: IconType = "NONE",
         buttons: ButtonList = [{ label: "OK" } as Button],
+        icon: IconType = "NONE",
+        preventCancel = false,
         width = 500,
         height = 250,
-        padding = 20,
-        preventCancel?: boolean
+        padding = 20
     ): void {
         if (!this.isInitialised) {
             // The CRM window, for calling back from an Alert iframe. Use parent.Alert._crmContext to get back to the CRM window from inside an iframe
@@ -163,6 +163,12 @@ class AlertStatic {
             }
 
             $button.html(button.label);
+
+            // Set internal id to manipulate buttons
+            if (button.internalId) {
+                $button.attr("id", "alertJs-Button-" + button.internalId);
+            }
+
             $button.click(() => this.buttonClicked(button.callback, button.preventClose));
 
             this.$("#alertJs-tdDialogFooter").append($button);
@@ -180,7 +186,7 @@ class AlertStatic {
         }
 
         // Show or hide the manual cancel button
-        if (preventCancel === true) {
+        if (preventCancel) {
             this.$("#alertJs-closeWrapper").hide();
         }
         else {
@@ -223,21 +229,22 @@ class AlertStatic {
     ): void {
         const iframeHtml = "<iframe id='alertJs-iFrame' class='alert-js-iframe' src='" + this.htmlEncode(iframeUrl) + "'></iframe>";
 
-        this.show(title, iframeHtml, "NONE", buttons, width, height, padding, preventCancel);
+        this.show(title, iframeHtml, buttons, "NONE", preventCancel, width, height, padding);
 
-        // Set a fixed height on the iframe (minus 3 for some reason) - it doesn't like relative heights, i.e. calc(100% - 3)
-        this.$("#alertJs-iFrame").css("height", this.calculateMessageHeight(height, padding, buttons.length, title) - 3);
+        // Set a fixed height on the iframe (minus 3 for some reason) - it doesn't like relative heights, i.e. calc(100% - 4)
+        // fixed to 4 for Chrome
+        this.$("#alertJs-iFrame").css("height", this.calculateMessageHeight(height, padding, buttons.length, title) - 4);
     }
 
     public showWebResource(
         webResourceName: string,
+        title?: string,
+        buttons?: ButtonList,
+        preventCancel = false,
         width?: number,
         height?: number,
         padding?: number,
-        title?: string,
-        buttons?: ButtonList,
-        preventCancel?: boolean,
-        baseUrl: string = Xrm.Page.context.getClientUrl()
+        baseUrl: string = Xrm.Page.context.getClientUrl(),
     ): void {
         const iframeUrl = baseUrl + "/webresources/" + webResourceName;
 
@@ -279,11 +286,16 @@ class AlertStatic {
     }
 
     public showLoading(): void {
-        this.show("Loading...", "", "LOADING", [], 230, 115, undefined, true);
+        this.show("Loading...", "", [], "LOADING", true, 230, 115);
     }
 
     // Hide the alert manually without performing any callbacks
-    public hide(): void {
+    public hide(subgridCall = false): void {
+        if (subgridCall) {
+            window.top.jQuery("#alertJs-wrapper").hide();
+            return;
+        }
+        
         if (this.isInitialised) {
             this.$("#alertJs-wrapper").hide();
         }
@@ -310,12 +322,25 @@ class AlertStatic {
         return this.crmContext;
     }
 
+    public setButtonEnabled(
+        internalId: string,
+        isEnabled: boolean,
+        childCall: boolean
+    ): void {
+        if (internalId == null) {
+            throw new Error("internalId parameter is not specified.");            
+        }
+
+        const button = childCall ? parent.jQuery("#alertJs-Button-" + internalId) : this.$("#alertJs-Button-" + internalId);
+        button.prop("disabled", !isEnabled);
+    }
+
     // Use the returned iframe context with jQuery to get data from the iframe, i.e. this.$("#something", Alert.getIFrameContext().document);
-    public getIFrameWindow(): Window | undefined {
+    public getIFrameWindow(subgridCall: boolean): Window | undefined {
         let iframeContext: Window | null = null;
 
         if (this.isInitialised) {
-            const $iframe = this.$<HTMLIFrameElement>("#alertJs-iFrame");
+            const $iframe = subgridCall ? window.top.jQuery("#alertJs-iFrame") : this.$<HTMLIFrameElement>("#alertJs-iFrame");
 
             if ($iframe.length > 0) {
                 try {

@@ -1,4 +1,4 @@
-/* Alert.js v2.1 - Copyright Paul Nieuwelaar Magnetism 2016 */
+/* Alert.js v2.2 *Beta* - Copyright Paul Nieuwelaar Magnetism 2017 */
 
 .alert-js-background {
     top: 0px;
@@ -111,14 +111,16 @@
     font-family: Segoe UI Light, Segoe UI, Tahoma, Arial !important;
     font-weight: lighter !important;
     font-size: 24px !important;
+    margin-left: 16px;
 }
 
 .alert-js-Error-Message {
     -ms-word-wrap: break-word;
     overflow-x: hidden;
     padding-right: 10px;
-    font-size: 11px !important;
+    font-size: 14px !important;
     width: 100%;
+    margin-top: 15px;
 }
 
 .alert-js-image {
@@ -181,6 +183,7 @@
 
     .alert-js-td-top .alert-js-Error-Header {
         margin-top: 8px;
+        margin-left: 16px;
     }
 
     .alert-js-td-top .alert-js-Error-Message {
