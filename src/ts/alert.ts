@@ -166,7 +166,7 @@ class AlertStatic {
 
             // Set internal id to manipulate buttons
             if (button.internalId) {
-                $button.attr('id', "alertJs-Button_" + button.internalId);
+                $button.attr("id", "alertJs-Button-" + button.internalId);
             }
 
             $button.click(() => this.buttonClicked(button.callback, button.preventClose));
@@ -231,8 +231,9 @@ class AlertStatic {
 
         this.show(title, iframeHtml, buttons, "NONE", preventCancel, width, height, padding);
 
-        // Set a fixed height on the iframe (minus 3 for some reason) - it doesn't like relative heights, i.e. calc(100% - 3)
-        this.$("#alertJs-iFrame").css("height", this.calculateMessageHeight(height, padding, buttons.length, title) - 4);    // fixed to 4 by Chrome
+        // Set a fixed height on the iframe (minus 3 for some reason) - it doesn't like relative heights, i.e. calc(100% - 4)
+        // fixed to 4 for Chrome
+        this.$("#alertJs-iFrame").css("height", this.calculateMessageHeight(height, padding, buttons.length, title) - 4);
     }
 
     public showWebResource(
@@ -294,8 +295,7 @@ class AlertStatic {
             window.top.jQuery("#alertJs-wrapper").hide();
             return;
         }
-
-
+        
         if (this.isInitialised) {
             this.$("#alertJs-wrapper").hide();
         }
@@ -322,7 +322,8 @@ class AlertStatic {
         return this.crmContext;
     }
 
-    public setButtonEnabled(internalId: string,
+    public setButtonEnabled(
+        internalId: string,
         isEnabled: boolean,
         childCall: boolean
     ): void {
@@ -330,8 +331,8 @@ class AlertStatic {
             throw new Error("internalId parameter is not specified.");            
         }
 
-        const button = childCall ? parent.jQuery("#alertJs-Button_" + internalId) : this.$("#alertJs-Button_" + internalId);
-        button.prop('disabled', !isEnabled);
+        const button = childCall ? parent.jQuery("#alertJs-Button-" + internalId) : this.$("#alertJs-Button-" + internalId);
+        button.prop("disabled", !isEnabled);
     }
 
     // Use the returned iframe context with jQuery to get data from the iframe, i.e. this.$("#something", Alert.getIFrameContext().document);
