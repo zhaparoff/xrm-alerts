@@ -244,7 +244,7 @@ class AlertStatic {
         width?: number,
         height?: number,
         padding?: number,
-        baseUrl: string = Xrm.Page.context.getClientUrl(),
+        baseUrl: string = Xrm.Utility.getGlobalContext().getClientUrl(),
     ): void {
         const iframeUrl = baseUrl + "/webresources/" + webResourceName;
 
@@ -258,7 +258,7 @@ class AlertStatic {
         callback?: () => void,
         width?: number,
         height?: number,
-        baseUrl: string = Xrm.Page.context.getClientUrl()
+        baseUrl: string = Xrm.Utility.getGlobalContext().getClientUrl()
     ): void {
         const dialogUrl = baseUrl + "/cs/dialog/rundialog.aspx?DialogId=%7b" + dialogId + "%7d&EntityName=" + entityName + "&ObjectId=" + recordId;
 
