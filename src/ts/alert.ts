@@ -1,7 +1,9 @@
 /**
- * @license
+ * @license CDDL-1.0
+ *
+ * @copyright
  * Based on https://github.com/PaulNieuwelaar/alertjs
- * Alert.js v2.1 - Copyright Paul Nieuwelaar Magnetism 2016
+ * Alert.js v2.1 - Paul Nieuwelaar Magnetism 2016
  *  
  * Changes from original version:
  * - Migrated to TypeScript
@@ -10,22 +12,20 @@
  * - Some method parameters removed, due to bundling, some were reordered
  * - Prepared for NPM package publishing
  *
- * Copyright 2019 - Anton Zhaparov
+ * 2019 - Anton Zhaparov
  */
-
 
 import css from "../css/alert.css";
 
-interface Button {
+export interface Button {
     label: string;
     callback: () => void;
     setFocus: boolean;
     preventClose: boolean;
-    internalId: string;
+    internalId?: string;
 }
-
-type ButtonList = Button[];
-type IconType = "INFO" | "WARNING" | "ERROR" | "SUCCESS" | "QUESTION" | "LOADING" | "NONE";
+export type ButtonList = Button[];
+export type IconType = "INFO" | "WARNING" | "ERROR" | "SUCCESS" | "QUESTION" | "LOADING" | "NONE";
 
 class AlertStatic {
     private readonly iconTypeToClassMap = {
@@ -295,7 +295,7 @@ class AlertStatic {
             window.top.jQuery("#alertJs-wrapper").hide();
             return;
         }
-        
+
         if (this.isInitialised) {
             this.$("#alertJs-wrapper").hide();
         }
@@ -328,7 +328,7 @@ class AlertStatic {
         childCall: boolean
     ): void {
         if (internalId == null) {
-            throw new Error("internalId parameter is not specified.");            
+            throw new Error("internalId parameter is not specified.");
         }
 
         const button = childCall ? parent.jQuery("#alertJs-Button-" + internalId) : this.$("#alertJs-Button-" + internalId);
@@ -387,6 +387,4 @@ class AlertStatic {
     }
 }
 
-const Alert = new AlertStatic();
-
-export default Alert;
+export const Alert = new AlertStatic();
