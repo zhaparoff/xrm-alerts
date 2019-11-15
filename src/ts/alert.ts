@@ -30,9 +30,12 @@ export interface Button {
     internalId?: string;
 }
 
+
 export type ButtonList = Button[];
 
 export type IconType = "INFO" | "WARNING" | "ERROR" | "SUCCESS" | "QUESTION" | "LOADING" | "NONE";
+
+export type Nullable<T> = T | undefined;
 
 
 class AlertManager {
