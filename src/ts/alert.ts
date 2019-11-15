@@ -17,17 +17,25 @@
 
 import css from "../css/alert.css";
 
+
+export interface ContentFrame extends Window {
+    getResponse(): object;
+}
+
 export interface Button {
     label: string;
-    callback: () => void;
-    setFocus: boolean;
-    preventClose: boolean;
+    callback?: () => void;
+    setFocus?: boolean;
+    preventClose?: boolean;
     internalId?: string;
 }
+
 export type ButtonList = Button[];
+
 export type IconType = "INFO" | "WARNING" | "ERROR" | "SUCCESS" | "QUESTION" | "LOADING" | "NONE";
 
-class AlertStatic {
+
+class AlertManager {
     private readonly iconTypeToClassMap = {
         ERROR: "crit",
         WARNING: "warn",
@@ -57,7 +65,7 @@ class AlertStatic {
     public show(
         title = "",
         message = "",
-        buttons: ButtonList = [{ label: "OK" } as Button],
+        buttons: ButtonList = [{ label: "OK" }],
         icon: IconType = "NONE",
         preventCancel = false,
         width = 500,
@@ -165,7 +173,7 @@ class AlertStatic {
             $button.html(button.label);
 
             // Set internal id to manipulate buttons
-            if (button.internalId) {
+            if (button.internalId != null) {
                 $button.attr("id", "alertJs-Button-" + button.internalId);
             }
 
@@ -318,7 +326,7 @@ class AlertStatic {
     }
 
     // Get the CRM window from inside an iframe to access custom functions, e.g. parent.Alert.getCrmWindow().doSomething();
-    public getCrmWindow(): Window | undefined {
+    public getCrmWindow(): Nullable<Window> {
         return this.crmContext;
     }
 
@@ -336,21 +344,31 @@ class AlertStatic {
     }
 
     // Use the returned iframe context with jQuery to get data from the iframe, i.e. this.$("#something", Alert.getIFrameContext().document);
-    public getIFrameWindow(subgridCall: boolean): Window | undefined {
-        let iframeContext: Window | null = null;
+    public getIFrameWindow(subgridCall = false): Nullable<ContentFrame> {
+        let iFrameContext: Nullable<ContentFrame>;
 
         if (this.isInitialised) {
-            const $iframe = subgridCall ? window.top.jQuery("#alertJs-iFrame") : this.$<HTMLIFrameElement>("#alertJs-iFrame");
+            const $iFrame = subgridCall ? window.top.jQuery("#alertJs-iFrame") : this.$<HTMLIFrameElement>("#alertJs-iFrame");
 
-            if ($iframe.length > 0) {
+            if ($iFrame.length > 0) {
                 try {
-                    iframeContext = $iframe[0].contentWindow;
+                    iFrameContext = $iFrame[0].contentWindow;
                 }
                 catch (e) { }
             }
         }
 
-        return iframeContext || undefined;
+        return iFrameContext;
+    }
+
+    public getIframeResponse(subgridCall = false): Nullable<object> {
+        const iFrame = this.getIFrameWindow(subgridCall);
+
+        if (iFrame == null) {
+            return;
+        }
+
+        return iFrame.getResponse();
     }
 
 
@@ -387,4 +405,4 @@ class AlertStatic {
     }
 }
 
-export const Alert = new AlertStatic();
+export const Alert = new AlertManager();

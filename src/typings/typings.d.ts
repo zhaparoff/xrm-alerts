@@ -8,3 +8,5 @@ declare interface Window {
     jQuery: any;
     closeWindow: () => void;
 }
+
+type Nullable<T> = T | undefined;

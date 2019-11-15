@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+- Return type for getIFrameWindow extended to include getResponse method
+- Additional method added to get iFrame input
+
 ## 1.0.3
 - Few types added to the exported declaration
 - Named declaration replaced the default one
