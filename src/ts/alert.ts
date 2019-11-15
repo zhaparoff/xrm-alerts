@@ -364,7 +364,7 @@ class AlertManager {
         return iFrameContext;
     }
 
-    public getIframeResponse(subgridCall = false): Nullable<object> {
+    public getIFrameResponse(subgridCall = false): Nullable<object> {
         const iFrame = this.getIFrameWindow(subgridCall);
 
         if (iFrame == null) {

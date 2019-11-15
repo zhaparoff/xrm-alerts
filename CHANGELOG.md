@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.6
+- Typo fix
+
 ## 1.0.5
 - Fixed issue with type declaration producing empty output declaration
 
