@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.7
+- AlertManager class added to library exports
+
 ## 1.0.6
 - Typo fix
 
