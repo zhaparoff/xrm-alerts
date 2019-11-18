@@ -2,7 +2,6 @@ import path from "path";
 import ts from "@wessberg/rollup-plugin-ts";
 import del from "rollup-plugin-delete";
 import postcss from "rollup-plugin-postcss";
-import { terser } from "rollup-plugin-terser";
 import url from "postcss-url";
 import cssNano from "cssnano";
 import autoprefixer from "autoprefixer";
@@ -10,7 +9,6 @@ import pkg from "./package.json";
 
 
 const rootDir = path.resolve(__dirname);
-const isProd = !process.env.ROLLUP_WATCH;
 
 
 export default {
@@ -20,6 +18,7 @@ export default {
             file: pkg.browser,
             format: "iife",
             name: "Alert",
+            extend: false,                                    
             globals: {
                 "jquery": "$",
                 "jquery": "jQuery"
@@ -29,6 +28,7 @@ export default {
             file: pkg.main,
             format: "cjs",
             name: "Alert",
+            extend: false,
             globals: {
                 "jquery": "$",
                 "jquery": "jQuery"
@@ -38,6 +38,7 @@ export default {
             file: pkg.module,
             format: "esm",
             name: "Alert",
+            extend: false,
             globals: {
                 "jquery": "$",
                 "jquery": "jQuery"
@@ -65,11 +66,6 @@ export default {
             exclude: [
                 "node_modules/**/*.*",
             ]
-        }),
-        isProd && terser({            
-            output: {
-                comments: "some"
-            }
         })
     ]
 };

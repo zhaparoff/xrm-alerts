@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.8
+- Minification turned off
+
 ## 1.0.7
 - AlertManager class added to library exports
 
