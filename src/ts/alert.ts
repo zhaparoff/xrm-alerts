@@ -38,7 +38,7 @@ export type IconType = "INFO" | "WARNING" | "ERROR" | "SUCCESS" | "QUESTION" | "
 export type Nullable<T> = T | undefined;
 
 
-export class AlertManager {
+class AlertManager {
     private readonly iconTypeToClassMap = {
         ERROR: "crit",
         WARNING: "warn",
@@ -408,4 +408,6 @@ export class AlertManager {
     }
 }
 
-export const Alert = new AlertManager();
+const Alert = new AlertManager();
+
+export default Alert;
