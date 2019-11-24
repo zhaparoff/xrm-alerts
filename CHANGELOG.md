@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.10
+- Dependencies updated
+
 ## 1.0.9
 - Default export returned back to fix the iife output
 
