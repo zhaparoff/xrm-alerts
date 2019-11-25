@@ -39,7 +39,7 @@
         "autoprefixer": "9.7.2",
         "core-js": "3.4.2",
         "cssnano": "4.1.10",
-        "eslint": "6.7.0",
+        "eslint": "6.7.1",
         "eslint-config-standard": "14.1.0",
         "eslint-plugin-import": "2.18.2",
         "eslint-plugin-jsdoc": "18.1.4",
