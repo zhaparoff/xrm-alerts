@@ -15,10 +15,9 @@ export default {
     input: path.join(rootDir, "src", "ts", "alert.ts"),
     output: [
         {
-            file: pkg.browser,
+            file: "dist/alert.js",
             format: "iife",
             name: "Alert",
-            extend: false,                                    
             globals: {
                 "jquery": "$",
                 "jquery": "jQuery"
@@ -28,7 +27,6 @@ export default {
             file: pkg.main,
             format: "cjs",
             name: "Alert",
-            extend: false,
             globals: {
                 "jquery": "$",
                 "jquery": "jQuery"
@@ -38,7 +36,6 @@ export default {
             file: pkg.module,
             format: "esm",
             name: "Alert",
-            extend: false,
             globals: {
                 "jquery": "$",
                 "jquery": "jQuery"

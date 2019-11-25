@@ -1,5 +1,5 @@
 {
-    "version": "1.0.10",
+    "version": "1.0.11-alpha.1",
     "scripts": {
         "build": "npm run check && npm run lint && npm run build:core",
         "watch": "rollup -c -w",
@@ -21,7 +21,6 @@
     "bugs": "https://github.com/zhaparoff/xrm-alerts/issues",
     "license": "CDDL-1.0",
     "author": "Anton Zhaparov",
-    "browser": "dist/alert.js",
     "main": "dist/alert.cjs.js",
     "module": "dist/alert.esm.js",
     "types": "dist/alert.d.ts",
