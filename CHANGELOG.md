@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.11
+- Browser field removed from package.json due to issue with usage with Parcel
+
 ## 1.0.10
 - Dependencies updated
 
