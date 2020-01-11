@@ -37,7 +37,7 @@
         "@types/xrm": "9.0.18",
         "@typescript-eslint/eslint-plugin": "2.15.0",
         "@typescript-eslint/parser": "2.15.0",
-        "@wessberg/rollup-plugin-ts": "1.2.4",
+        "@wessberg/rollup-plugin-ts": "1.2.5",
         "autoprefixer": "9.7.3",
         "core-js": "3.6.3",
         "cssnano": "4.1.10",
