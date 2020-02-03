@@ -54,7 +54,7 @@
         "rollup-cli": "1.0.9",
         "rollup-plugin-babel": "4.3.3",
         "rollup-plugin-delete": "1.2.0",
-        "rollup-plugin-postcss": "2.0.5",
+        "rollup-plugin-postcss": "2.0.6",
         "typescript": "3.7.5"
     }
 }
