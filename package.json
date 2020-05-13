@@ -35,7 +35,7 @@
         "@babel/core": "7.9.6",
         "@types/jquery": "3.3.38",
         "@types/xrm": "9.0.25",
-        "@typescript-eslint/eslint-plugin": "2.31.0",
+        "@typescript-eslint/eslint-plugin": "2.33.0",
         "@typescript-eslint/parser": "2.33.0",
         "@wessberg/rollup-plugin-ts": "1.2.24",
         "autoprefixer": "9.7.6",
