@@ -36,7 +36,7 @@
         "@types/jquery": "3.3.38",
         "@types/xrm": "9.0.27",
         "@typescript-eslint/eslint-plugin": "2.33.0",
-        "@typescript-eslint/parser": "2.33.0",
+        "@typescript-eslint/parser": "2.34.0",
         "@wessberg/rollup-plugin-ts": "1.2.24",
         "autoprefixer": "9.8.0",
         "core-js": "3.6.5",
