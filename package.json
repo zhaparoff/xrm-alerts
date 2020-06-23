@@ -32,7 +32,7 @@
         "jquery": "*"
     },
     "devDependencies": {
-        "@babel/core": "7.10.2",
+        "@babel/core": "7.10.3",
         "@types/jquery": "3.5.0",
         "@types/xrm": "9.0.27",
         "@typescript-eslint/eslint-plugin": "2.34.0",
