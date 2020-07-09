@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.12
+- Update readme due to build pipeline changes
+
 ## 1.0.11
 - Browser field removed from package.json due to issue with usage with Parcel
 
