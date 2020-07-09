@@ -1,7 +1,7 @@
 # XRM Alerts
 
 [![Build Status](https://dev.azure.com/zhaparoff/Xrm%20Tools/_apis/build/status/GitHub/xrm-alerts?branchName=master)](https://dev.azure.com/zhaparoff/Xrm%20Tools/_build/latest?definitionId=18&branchName=master)
-![Azure DevOps releases](https://img.shields.io/azure-devops/release/zhaparoff/238b0e22-3e3a-41ba-9b0b-9a36806d45d1/1/1)
+[![Release Status](https://vsrm.dev.azure.com/zhaparoff/_apis/public/Release/badge/72b78504-1837-4642-98f5-78bb00200d42/2/2)](https://dev.azure.com/zhaparoff/Xrm%20Tools/_release?definitionId=2)
 [![npm](https://img.shields.io/npm/v/xrm-alerts)](https://www.npmjs.com/package/xrm-alerts)
 
 
