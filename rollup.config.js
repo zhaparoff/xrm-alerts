@@ -27,6 +27,7 @@ export default {
             file: pkg.main,
             format: "cjs",
             name: "Alert",
+            exports: "auto",
             globals: {
                 "jquery": "$",
                 "jquery": "jQuery"
