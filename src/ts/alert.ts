@@ -19,7 +19,7 @@ import css from "../css/alert.css";
 
 
 export interface ContentFrame extends Window {
-    getResponse(): object;
+    getResponse(): any;
 }
 
 export interface Button {
@@ -79,7 +79,7 @@ class AlertManager {
             // The CRM window, for calling back from an Alert iframe. Use parent.Alert._crmContext to get back to the CRM window from inside an iframe
             this.crmContext = window;
 
-            this.jQuery = window.jQuery || window.parent.jQuery || window.top.jQuery;
+            this.jQuery = window.jQuery ?? window.parent.jQuery ?? window.top.jQuery;
 
             // The parent/top document which we append the wrapper to
             this.context = window.top.document;
@@ -364,7 +364,7 @@ class AlertManager {
         return iFrameContext;
     }
 
-    public getIFrameResponse(subgridCall = false): Nullable<object> {
+    public getIFrameResponse(subgridCall = false): any {
         const iFrame = this.getIFrameWindow(subgridCall);
 
         if (iFrame == null) {
